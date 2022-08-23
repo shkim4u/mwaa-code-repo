@@ -1,0 +1,6 @@
+apache-airflow-providers-amazon
+kubernetes
+apache-airflow[cncf.kubernetes]
+apache-airflow-providers-mysql==1.0.2
+pymysql==1.0.2
+kafka-python==2.0.2
