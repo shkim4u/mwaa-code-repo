@@ -53,10 +53,12 @@ def testWorkflow():
                 pwd+"/test": {"bind": "/usr/local/airflow/test/", "mode": "rw"},
                 pwd+"/plugins": {"bind": "/usr/local/airflow/plugins/", "mode": "rw"},
             },
+            # TODO: Account ID, Image Tag
             environment={
                 "LOAD_EX":"n",
                 "EXECUTOR":"Local",
-                "AIRFLOW__CORE__SQL_ALCHEMY_CONN":"postgresql+psycopg2://airflow:airflow@postgres:5432/airflow"
+                "AIRFLOW__CORE__SQL_ALCHEMY_CONN":"postgresql+psycopg2://airflow:airflow@postgres:5432/airflow",
+                "spring-batch-lab-image":"301391518739.dkr.ecr.ap-northeast-2.amazonaws.com/eksworkshop-buildanddeliverystack-repository:latest"
             },
             command="local-runner",
             links={postgres.name:postgres.name},
