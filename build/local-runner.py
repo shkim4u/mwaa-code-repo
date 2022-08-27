@@ -58,7 +58,8 @@ def testWorkflow():
                 "LOAD_EX":"n",
                 "EXECUTOR":"Local",
                 "AIRFLOW__CORE__SQL_ALCHEMY_CONN":"postgresql+psycopg2://airflow:airflow@postgres:5432/airflow",
-                "spring-batch-lab-image":"301391518739.dkr.ecr.ap-northeast-2.amazonaws.com/eksworkshop-buildanddeliverystack-repository:latest"
+                "AIRFLOW_VAR_SPRING_BATCH_LAB_IMAGE":"301391518739.dkr.ecr.ap-northeast-2.amazonaws.com/eksworkshop-buildanddeliverystack-repository:latest",
+                "AIRFLOW_VAR_SPRING_BATCH_LAB_INTERVAL":"@daily"
             },
             command="local-runner",
             links={postgres.name:postgres.name},

@@ -32,8 +32,8 @@ default_args = {
 kube_config_path = './dags/kube_config.yaml'
 now = datetime.now()
 
-container_image = Variable.get("spring-batch-lab-image")
-interval = Variable.get("spring-batch-lab-interval")
+container_image = Variable.get("SPRING_BATCH_LAB_IMAGE")
+interval = Variable.get("SPRING_BATCH_LAB_INTERVAL")
 
 sync_batch_default_args = {
     'namespace': 'mwaa',
