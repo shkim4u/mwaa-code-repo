@@ -33,7 +33,7 @@ def testWorkflow():
         postgres = docker_client.containers.run(
             mwaa_db_image,
             detach=True,
-            ports={"5432": 5432},  
+            ports={"5432": 5432},
             volumes={
                 pwd+"/data": {"bind": "/var/lib/postgresql/data", "mode": "rw"},
             },
@@ -60,7 +60,7 @@ def testWorkflow():
             },
             command="local-runner",
             links={postgres.name:postgres.name},
-        ) 
+        )
         initDB(mwaa)
         testRequirements(mwaa, requirements)
         runIntegrityTest(mwaa)
@@ -98,8 +98,8 @@ def testRequirements(mwaa, requirements):
     exit_code = 0
     with open(requirements, "r") as requirementFile:
         requirementFileContent = requirementFile.read()
-        if constraintFileName not in requirementFileContent:
-            exit_code = 1
+        # if constraintFileName not in requirementFileContent:
+        #     exit_code = 1
         requirementFile.close()
 
     if (exit_code == 1):
@@ -118,14 +118,14 @@ def runIntegrityTest(mwaa):
 
     exit_code, dag_test_output = mwaa.exec_run(
         "python3 -m unittest /usr/local/airflow/test/dag_validation.py"
-        
+
     )
     if (exit_code == 1):
         raise Exception(dag_test_output)
     print("Dag integrity test is done")
 
 def runUnitTest(mwaa):
- 
+
     print("running unit test ...")
     exit_code, dag_test_output = mwaa.exec_run(
             "python3 -m unittest discover -s /usr/local/airflow/test/dags -p 'test*.py'"
@@ -139,6 +139,6 @@ region = sys.argv[1]
 account=sys.argv[2]
 pwd=sys.argv[3]
 requirements=sys.argv[4]
-constraintFileName=sys.argv[5]
+# constraintFileName=sys.argv[5]
 
 testWorkflow()
