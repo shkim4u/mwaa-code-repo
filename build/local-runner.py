@@ -98,8 +98,8 @@ def testRequirements(mwaa, requirements):
     exit_code = 0
     with open(requirements, "r") as requirementFile:
         requirementFileContent = requirementFile.read()
-        # if constraintFileName not in requirementFileContent:
-        #     exit_code = 1
+        if constraintFileName not in requirementFileContent:
+            exit_code = 1
         requirementFile.close()
 
     if (exit_code == 1):
@@ -139,6 +139,6 @@ region = sys.argv[1]
 account=sys.argv[2]
 pwd=sys.argv[3]
 requirements=sys.argv[4]
-# constraintFileName=sys.argv[5]
+constraintFileName=sys.argv[5]
 
 testWorkflow()
