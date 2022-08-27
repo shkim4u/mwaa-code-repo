@@ -1,8 +1,8 @@
 # https://docs.aws.amazon.com/mwaa/latest/userguide/best-practices-dependencies.html
---constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.0.2/constraints-3.7.txt"
-apache-airflow-providers-amazon
-kubernetes
+--constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.2.2/constraints-3.7.txt"
+# apache-airflow-providers-amazon
+# kubernetes
 apache-airflow[cncf.kubernetes]
-apache-airflow-providers-mysql==1.0.2
+# apache-airflow-providers-mysql==1.0.2
 pymysql==1.0.2
 kafka-python==2.0.2
