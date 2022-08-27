@@ -1,4 +1,5 @@
---constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.0.2/constraints-3.7.txt"
+# https://docs.aws.amazon.com/mwaa/latest/userguide/best-practices-dependencies.html
+--constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.2.2/constraints-3.7.txt"
 apache-airflow-providers-amazon
 kubernetes
 apache-airflow[cncf.kubernetes]
