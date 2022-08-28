@@ -29,7 +29,7 @@ default_args = {
 
 #use a kube_config stored in s3 dags folder for now
 # kube_config_path = '/usr/local/airflow/dags/kube_config.yaml'
-kube_config_path = './dags/kube_config.yaml'
+kube_config_path = './conf/kube_config.yaml'
 now = datetime.now()
 
 container_image = Variable.get("SPRING_BATCH_LAB_IMAGE")
