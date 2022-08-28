@@ -17,7 +17,7 @@ Parameters:
   PluginsVersion:
     Description: Plugins file S3 object version
     Type: String
-    
+
   VpcCIDR:
     Description: Please enter the IP range (CIDR notation) for this VPC
     Type: String
@@ -32,7 +32,7 @@ Parameters:
     Description: The IP range (CIDR notation) for the public subnet in the second Availability Zone
     Type: String
     Default: 10.193.11.0/24
-    
+
   PrivateSubnet1CIDR:
     Description: Please enter the IP range (CIDR notation) for the private subnet in the first Availability Zone
     Type: String
@@ -42,11 +42,12 @@ Parameters:
     Description: Please enter the IP range (CIDR notation) for the private subnet in the second Availability Zone
     Type: String
     Default: 10.193.21.0/24
-    
+
   AirflowVersion:
     Description: Airflow Version
     Type: String
-    Default: 2.0.2
+#    Default: 2.0.2
+    Default: 2.2.2
 
 
 Resources:
@@ -240,7 +241,7 @@ Resources:
       Name: !Sub /mwaa/cicd/${AWS::StackName}/name
       Type: String
       Value: !Ref MwaaEnvironment
-      
+
   MwaaEnvironment:
     Type: AWS::MWAA::Environment
     DependsOn: MwaaExecutionPolicy
@@ -254,7 +255,7 @@ Resources:
       RequirementsS3ObjectVersion: !Ref RequirementsFileVersion
       PluginsS3Path: plugins/plugins.zip
       PluginsS3ObjectVersion: !Ref PluginsVersion
-      NetworkConfiguration: 
+      NetworkConfiguration:
         SecurityGroupIds:
           - !GetAtt SecurityGroup.GroupId
         SubnetIds:
@@ -278,7 +279,7 @@ Resources:
         WebserverLogs:
           LogLevel: INFO
           Enabled: true
-  
+
 
   MwaaExecutionRole:
     Type: AWS::IAM::Role
