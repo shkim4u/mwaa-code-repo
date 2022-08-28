@@ -3,6 +3,6 @@
         "EnvironmentName":"MWAAEnvironment1",
         "RequirementsFileVersion":"REQUIREMENT_FILE_VERSION",
         "PluginsVersion":"PLUGIN_FILE_VERSION",
-        "S3Bucket":"mwaa-cicd-bucket"
+        "S3Bucket":"mwaa-code-repo-bucket"
     }
 }
